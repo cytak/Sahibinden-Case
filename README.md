@@ -1,0 +1,2 @@
+# Sahibinden-Case
+Twitter was used as API. Twitter4J library was used for Twitter registration. MVVM design architecture was applied. Dagger-Hilt was used for Dependency Injection. Android Jetpack library Paging was used for pagin operation. 3 different Fragments were created on an activity. Router class was used to manage fragments .The tweets shared by the user were used. A total of 3 request processes were used. Flow and LiveData were used.

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SahibindenEnesCase</string>
+    <string name="source_name">Enes Pecenek</string>
+    <string name="tweet_date">05.12.2020</string>
+    <string name="tweet_description">Tweet Description</string>
+    <string name="tweets">Tweets</string>
+    <string name="login_twitter">Login Twitter</string>
+    <string name="retry">Retry</string>
+    <string name="something_went_wrong">Something went wrong.</string>
+    <string name="tweet_detail">Tweet Detail</string>
+    <string name="tweet_author_id">Author Id</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="user_information">User Information</string>
+    <string name="description">Description</string>
+    <string name="name">Name</string>
+    <string name="created_date">Created Date</string>
+    <string name="location">Location</string>
+    <string name="user_name">userName</string>
+    <string name="Count">count</string>
+    <string name="tweet_count">Follower Count %1$s Following Count %2$s Tweet Count %3$s Listed Count %4$s</string>
+    <string name="sign_out">Sign Out</string>
+
+</resources>

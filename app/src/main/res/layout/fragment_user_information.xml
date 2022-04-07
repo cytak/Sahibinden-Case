@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.enes.sahibindenenescase.viewmodel.UserViewModel"/>
+
+        <variable
+            name="userInformationUiState"
+            type="com.enes.sahibindenenescase.view.UserInformationUiState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height_size"
+            android:background="@color/primary_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtToolbar"
+                style="@style/tweet_toolbar_text_style"
+                android:layout_centerInParent="true"
+                android:text="@string/user_information" />
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="8dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_left"
+                app:tint="@color/black" />
+
+        </RelativeLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/userPhoto"
+            imageUrl="@{userInformationUiState.userImage}"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:shapeAppearanceOverlay="@style/circle"
+            app:srcCompat="@drawable/ic_twitter" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDescription"
+            style="@style/tweet_card_title_text_style"
+            android:layout_marginTop="16dp"
+            android:text="@{userInformationUiState.description}"
+            app:layout_constraintBottom_toTopOf="@+id/txtName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userPhoto"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:text="@string/description" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtName"
+            style="@style/tweet_card_title_text_style"
+            android:layout_marginTop="4dp"
+            android:text="@{userInformationUiState.name}"
+            app:layout_constraintBottom_toTopOf="@+id/txtCreatedDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userPhoto"
+            app:layout_constraintTop_toBottomOf="@id/txtDescription"
+            tools:text="@string/name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtCreatedDate"
+            style="@style/tweet_card_text_style"
+            android:layout_marginTop="4dp"
+            android:text="@{userInformationUiState.date}"
+            app:layout_constraintBottom_toTopOf="@id/txtLocation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            tools:text="@string/created_date" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtLocation"
+            style="@style/tweet_card_text_style"
+            android:layout_marginTop="4dp"
+            android:text="@{userInformationUiState.location}"
+            app:layout_constraintBottom_toTopOf="@id/txtUserName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/txtCreatedDate"
+            tools:text="@string/location" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtUserName"
+            style="@style/tweet_card_text_style"
+            android:layout_marginTop="4dp"
+            android:text="@{userInformationUiState.userName}"
+            app:layout_constraintBottom_toTopOf="@id/txtCount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/txtLocation"
+            tools:text="@string/user_name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtCount"
+            style="@style/tweet_card_text_style"
+            android:layout_marginTop="4dp"
+            android:text="@{@string/tweet_count(userInformationUiState.followersCount,userInformationUiState.followingCount,userInformationUiState.getTweetCount,userInformationUiState.getListedCount)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/txtUserName"
+            tools:text="@string/Count" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/twitterLoginButton"
+            style="@style/appCompatButton_text_style"
+            android:layout_centerInParent="true"
+            android:background="@drawable/twitter_button_background"
+            android:drawableStart="@drawable/ic_twitter"
+            android:drawablePadding="8dp"
+            android:padding="16dp"
+            android:text="@string/sign_out"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:drawableTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{(view) -> viewModel.getSignOut()}"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
